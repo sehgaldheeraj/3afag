@@ -1,0 +1,9 @@
+h1 {
+  text-align: center;
+  color: #ff0000;
+  font-size: 50px;
+}
+label,
+input {
+  display: block;
+}
