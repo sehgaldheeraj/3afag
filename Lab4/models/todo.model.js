@@ -44,5 +44,20 @@ class Todo {
       }
     });
   };
+
+  static updateTodo = (id, status) => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const data = await fs.readFile(todosDB);
+        const todos = JSON.parse(data);
+        const todoIdx = todos.findIndex((todo) => todo.id === id);
+        todos[todoIdx].status = status;
+        await fs.writeFile(todosDB, JSON.stringify(todos));
+        resolve(todos);
+      } catch (err) {
+        reject(err);
+      }
+    });
+  };
 }
 module.exports = Todo;
