@@ -1,0 +1,26 @@
+1. View all dbs 
+    -show dbs
+2. switch DB or create a new DB
+    -use <db_name>
+3. new collection
+4. CREATE a document (Insert)
+    -db.<collection>.insertOne({})
+    -db.<collection>.insertMany([{}, {}, {},....])
+    db.products.insertMany([{
+        name: 'nikes',
+        price: 350,
+        qty: 120, 
+    },
+    {
+        name: 'abibas',
+        price: 120,
+        qty: 8, 
+    },
+    {
+        name: 'puma',
+        price: 210,
+        qty: 0, 
+    }
+    ])
+5. Read all the data in the collection
+    db.<collection>.find() //argument: filter 

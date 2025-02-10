@@ -7,9 +7,7 @@
 </head>
 <body>
     <h3>Update Your Todo's Status</h3>
-    <form method="post" action= "/todos?_method=patch">
-        <label for="id"></label>
-        <input type="number" name="id"></input>
+    <form method="post" action= "/todos/<%= id %>?_method=patch">
         <label for="status">Status</label>
         <input type="text" name="status"></input>
         <button type="submit">Update</button>

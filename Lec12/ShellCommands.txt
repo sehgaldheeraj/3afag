@@ -1,0 +1,53 @@
+1. View all dbs 
+    -show dbs
+2. switch DB or create a new DB
+    -use <db_name>
+3. new collection
+4. CREATE a document (Insert)
+    -db.<collection>.insertOne({})
+    -db.<collection>.insertMany([{}, {}, {},....])
+    db.products.insertMany([{
+        name: 'nikes',
+        price: 350,
+        qty: 120, 
+    },
+    {
+        name: 'abibas',
+        price: 120,
+        qty: 8, 
+    },
+    {
+        name: 'puma',
+        price: 210,
+        qty: 0, 
+    }
+    ])
+5. Read all the data in the collection
+    db.<collection>.find(filter) //argument: filter 
+6. Update a document / multiple documents
+    db.<coll>.updateOne(filter, {$set: })
+    db.<coll>.updateMany(, )
+7. Delete a document / multiple documents
+    db.<coll>.deleteOne(filter)
+    db.<coll>.deleteMany(filter) 
+8. db.products.aggregate([
+  // Step 1: Match products with price greater than 100
+  { $match: { price: { $gt: 100 } } },
+
+  // Step 2: Calculate total inventory value for each product (price * qty)
+  { $project: {
+      id: 1,
+      name: 1,
+      price: 1,
+      qty: 1,
+      total_inventory_value: { $multiply: ["$price", "$qty"] }  // price * qty
+    }
+  },
+
+  // Step 3: Sort by total_inventory_value in descending order
+  { $sort: { total_inventory_value: -1 } },
+
+  // Step 4: Limit the result to the top 5 products
+  { $limit: 5 }
+])
+       

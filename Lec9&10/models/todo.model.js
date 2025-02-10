@@ -33,5 +33,36 @@ class Todo {
       }
     });
   };
+  static readTodos = () => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const data = await fs.readFile(todosDB);
+        const todos = JSON.parse(data);
+        resolve(todos);
+      } catch (err) {
+        reject(err);
+      }
+    });
+  };
+
+  static updateTodo = (id, status) => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const data = await fs.readFile(todosDB);
+        const todos = JSON.parse(data);
+        console.log(id, status);
+        console.log(todos);
+
+        const todoIdx = todos.findIndex((todo) => todo.id == id);
+        console.log(todoIdx);
+        todos[todoIdx].status = status;
+
+        await fs.writeFile(todosDB, JSON.stringify(todos));
+        resolve(todos);
+      } catch (err) {
+        reject(err);
+      }
+    });
+  };
 }
 module.exports = Todo;

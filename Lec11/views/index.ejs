@@ -12,7 +12,7 @@
     <h3>Your Todos</h3>
     <ul>
       <% todos.forEach(todo => { %>
-        <a href="/updateTodo"><li><%= todo.id %><%= todo.name %> - <%= todo.type %> - <%= todo.status %></li></a> 
+        <a href="/updateTodo/<%= todo.id %>"><li><%= todo.id %><%= todo.name %> - <%= todo.type %> - <%= todo.status %></li></a> 
       <% }); %>
     </ul>
   </body>

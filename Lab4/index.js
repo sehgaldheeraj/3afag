@@ -9,15 +9,6 @@ app.use(express.urlencoded({ extended: true })); // middleware that converts url
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 
-app.get("/", async (req, res) => {
-  try {
-    const todos = await Todo.readTodos();
-    return res.render("index", { todos });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
 app.get("/addTodo", (req, res) => res.render("addTodo"));
 
 app.post("/todos", async (req, res) => {
@@ -33,18 +24,6 @@ app.post("/todos", async (req, res) => {
   }
   //Todo.addTodo(title, type, status);
   //send response to the client
-});
-
-//Update Operation
-app.patch("/todos/:id", async (req, res) => {
-  const { status } = req.body;
-  const { id } = req.params;
-  try {
-    await Todo.updateTodo(id, status);
-    return res.status(200).json({ message: "status updated successfully" });
-  } catch (err) {
-    return res.status(500).json({ message: err.message });
-  }
 });
 
 app.listen(3000, () => {

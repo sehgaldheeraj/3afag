@@ -40,13 +40,15 @@ app.post("/todos", async (req, res) => {
 });
 
 //Update views
-app.get("/updateTodo", (req, res) => {
-  res.render("updateTodo");
+app.get("/updateTodo/:id", (req, res) => {
+  const { id } = req.params;
+  res.render("updateTodo", { id });
 });
 
 //Update Operation
-app.patch("/todos/", async (req, res) => {
-  const { id, status } = req.body;
+app.patch("/todos/:id", async (req, res) => {
+  const { status } = req.body;
+  const { id } = req.params;
   console.log(status);
   try {
     await Todo.updateTodo(id, status);
