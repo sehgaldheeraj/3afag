@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Update Your Todo's Status</h3>
+    <form method="post" action= "/todos/<%= id %>?_method=patch">
+        <label for="status">Status</label>
+        <input type="text" name="status"></input>
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>
