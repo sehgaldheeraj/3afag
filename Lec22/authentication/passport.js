@@ -3,8 +3,8 @@ const LocalStrategy = require("passport-local");
 //const GoogleStrategy = require("passport-google");
 //configuring strategy
 passport.use(
-  new LocalStrategy(function (email, password, done) {
-    User.findOne({ email: email }, function (err, user) {
+  new LocalStrategy(function (username, password, done) {
+    User.findOne({ username: username }, function (err, user) {
       if (err) {
         return done(err); //Server side error - 500
       }

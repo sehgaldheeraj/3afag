@@ -8,11 +8,11 @@ const User = require("../models/user.model");
  */
 //POST : localhost:3000/v1/users -> Create a new user
 router.post("/", async (req, res) => {
-  const { fullname, email, phone, password, role } = req.body;
+  const { username, email, phone, password, role } = req.body;
   try {
     const hashedPassword = await bcrypt.hash(password, 10); //10 salt rounds
     await User.create({
-      fullname,
+      username,
       email,
       phone,
       password: hashedPassword,

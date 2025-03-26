@@ -24,7 +24,7 @@ const passport = require("./authentication/passport");
 app.use(passport.initialize());
 app.use(passport.session());
 //app.use(passport.authenticate("session"));
-
+//PATCH "localhost:3000/v1/products/:id/edit"
 app.use("/v1", routes);
 
 async function connect() {

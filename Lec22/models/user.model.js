@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const userSchema = new mongoose.Schema({
-  fullname: String,
-  email: String,
-  phone: Number,
-  password: String,
-  role: String,
+  username: { type: String, required: true, unique: true },
+  email: { type: String, required: true, unique: true }, //TASK: custom validator in mongoose for email
+  phone: { type: Number, unique: true },
+  password: { type: String, required: true },
+  role: { type: String, default: "buyer" }, //TASK: custom type enum: [buyer, seller, admin]
 });
 //hash passwords, verifyEmail
 
