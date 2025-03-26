@@ -23,5 +23,5 @@ app.post("/", m1, (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log("learning mi ddlewares @ 3000");
+  console.log("learning middlewares @ 3000");
 });
