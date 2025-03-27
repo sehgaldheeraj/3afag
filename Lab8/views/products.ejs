@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Shop Your Products</h1>
+    <% products.forEach(product => { %>
+    <div>
+      <h3><%=product.name%></h3>
+      <p><%=product.desc%></p>
+      <p><%=product.category%></p>
+      <p><%=product.price%></p>
+      <p><%=product.quantity%></p>
+      <a href="/v1/products/<%=product.id%>">View this Product</a>
+      <a href="/v1/products/<%=product.id%>/edit">Update</a>
+      <form method="POST" action="/v1/products/<%=product.id%>?_method=DELETE">
+        <submit>Delete</submit>
+      </form>
+    </div>
+    <% }) %>
+  </body>
+</html>

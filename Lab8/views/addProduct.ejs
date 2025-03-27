@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"></link>
+    <title>Document</title>
+</head>
+<body>
+    <h2>Add New Product</h2>
+    <form method="POST" action="/v1/products">
+        <div>
+            <label for="name">Product Name</label>
+            <input type="text" name="name" placeholder="Enter Product Name"></input>
+        </div>
+        <div>
+            <label for="desc">Description</label>
+            <input type="text" name="desc" placeholder="Enter Product Description"></input>
+        </div>
+        <div>
+            <label for="category">Select Category</label>
+            <select name="category" id="">
+                <option value="Apparels"></option>
+                <option value="Footwear"></option>
+                <option value="Casual Wear"></option>
+            </select>
+            
+        </div>
+        <div>
+            <label for="price">Enter Price</label>
+            <input type="number" name="price" placeholder="Enter Product Price(in INR)"></input>
+        </div>
+        <div>
+            <label for="quantity">Quantity</label>
+            <input type="text" name="quantity" placeholder="Enter Product Quantity"></input>
+        </div>
+        <button type="submit">Add New Product</button>
+    </form>
+</body>
+</html>
