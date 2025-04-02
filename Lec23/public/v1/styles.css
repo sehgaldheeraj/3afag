@@ -1,0 +1,20 @@
+.userForms {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+}
+
+.productsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.productsContainer div {
+  border: 2px solid black;
+  margin: 10px;
+  padding: 10px;
+}
