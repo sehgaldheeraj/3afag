@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const Navbar = () => {
   //let count = 0;
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0); //state is immutable
   function handleIncrement() {
     setCount(count + 1);
     console.log(count);
